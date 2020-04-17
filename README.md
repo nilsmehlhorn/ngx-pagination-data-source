@@ -77,9 +77,24 @@ export class UsersComponent  {
 }
 ```
 
-Hook the data source to a table and paginator in your view. You can optionally add loading indication by e.g. hooking up a spinner to `dataSource.loading$`.
+Hook the data source to a table and paginator in your view. Hook any query inputs to `dataSource.queryBy()` to provide a partial new query that will be merged with the existing one. You can also hook up inputs to `dataSource.sortBy()` in the same way.
+
+You can optionally add loading indication by e.g. hooking up a spinner to `dataSource.loading$`.
 
 ```html
+<mat-form-field>
+  <mat-icon matPrefix>search</mat-icon>
+  <input #in (input)="data.queryBy({search: in.value})" type="text" matInput>
+</mat-form-field>
+<mat-form-field class="registration">
+  <input (dateChange)="data.queryBy({registration: $event.value})" matInput [matDatepicker]="picker" placeholder="Registration"/>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<mat-button-toggle-group>
+  <mat-button-toggle value="asc"><mat-icon>arrow_up</mat-icon></mat-button-toggle>
+  <mat-button-toggle value="desc"><mat-icon>arrow_down</mat-icon></mat-button-toggle>
+</mat-button-toggle-group>
 <table mat-table [dataSource]="dataSource">
   <!-- column definitions -->
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

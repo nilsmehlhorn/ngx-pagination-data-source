@@ -19,10 +19,18 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-pagination-data-source": [
+        "dist/ngx-pagination-data-source/ngx-pagination-data-source",
+        "dist/ngx-pagination-data-source"
+      ]
+    },
+    "removeComments": false
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "strictInjectionParameters": true,
+    "annotateForClosureCompiler": false
   }
 }

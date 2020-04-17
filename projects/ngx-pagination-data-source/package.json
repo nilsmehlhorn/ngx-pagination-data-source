@@ -1,0 +1,31 @@
+{
+  "name": "ngx-pagination-data-source",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Nils Melhorn <mail@nils-mehlhorn.de> (https://nils-mehlhorn.de)",
+  "description": "Angular Material Pagination Data Source",
+  "homepage": "https://github.com/nilsmehlhorn/ngx-pagination-data-source",
+  "keywords": [
+    "rxjs",
+    "angular",
+    "typescript",
+    "javascript",
+    "material",
+    "cdk",
+    "pagination",
+    "table"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nilsmehlhorn/ngx-pagination-data-source.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nilsmehlhorn/ngx-pagination-data-source/issues"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.1.1",
+    "@angular/core": "^9.1.1",
+    "@angular/cdk": "^9.1.1",
+    "tslib": "^1.10.0"
+  }
+}

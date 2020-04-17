@@ -1,0 +1,14 @@
+{
+  "packageFiles": [
+    {
+      "filename": "projects/ngx-pagination-data-source/package.json",
+      "type": "json"
+    }
+  ],
+  "bumpFiles": [
+    {
+      "filename": "projects/ngx-pagination-data-source/package.json",
+      "type": "json"
+    }
+  ]
+}

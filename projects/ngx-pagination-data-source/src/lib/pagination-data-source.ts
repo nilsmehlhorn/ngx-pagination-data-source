@@ -6,7 +6,7 @@ import {indicate} from './indicate'
 
 export class PaginationDataSource<T, Q = Partial<T>> implements SimpleDataSource<T> {
   private readonly pageNumber = new Subject<number>()
-  private readonly sort = new Subject<Sort<T>>()
+  private readonly sort: BehaviorSubject<Sort<T>>
   private readonly query: BehaviorSubject<Q>
   private readonly loading = new Subject<boolean>()
 
@@ -19,10 +19,8 @@ export class PaginationDataSource<T, Q = Partial<T>> implements SimpleDataSource
     initialQuery: Q,
     public pageSize = 20) {
     this.query = new BehaviorSubject<Q>(initialQuery)
-    const param$ = combineLatest([
-      this.query,
-      this.sort.pipe(startWith(initialSort))
-    ])
+    this.sort = new BehaviorSubject<Sort<T>>(initialSort)
+    const param$ = combineLatest([this.query, this.sort])
     this.page$ = param$.pipe(
       switchMap(([query, sort]) => this.pageNumber.pipe(
         startWith(0),
@@ -34,8 +32,10 @@ export class PaginationDataSource<T, Q = Partial<T>> implements SimpleDataSource
     )
   }
 
-  sortBy(sort: Sort<T>): void {
-    this.sort.next(sort)
+  sortBy(sort: Partial<Sort<T>>): void {
+    const lastSort = this.sort.getValue()
+    const nextSort = {...lastSort, ...sort}
+    this.sort.next(nextSort)
   }
 
   queryBy(query: Partial<Q>): void {

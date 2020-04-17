@@ -66,7 +66,7 @@ import { PaginationDataSource } from 'ngx-pagination-data-source'
 export class UsersComponent  {
     displayedColumns = ['id', 'name', 'email', 'registration']
 
-    dataSource = new PaginatedDataSource<User, UserQuery>(
+    dataSource = new PaginationDataSource<User, UserQuery>(
       (request, query) => this.users.page(request, query),
       {property: 'username', order: 'desc'},
       {search: '', registration: undefined}

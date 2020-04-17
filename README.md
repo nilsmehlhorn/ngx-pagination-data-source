@@ -21,7 +21,7 @@ Have a type you want to display in a [table](https://material.angular.io/compone
 ```ts
 export interface User {
   id: number
-  name: string
+  username: string
   email: string
   phone: string
   registrationDate: Date
@@ -91,9 +91,16 @@ You can optionally add loading indication by e.g. hooking up a spinner to `dataS
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
-<mat-button-toggle-group>
-  <mat-button-toggle value="asc"><mat-icon>arrow_up</mat-icon></mat-button-toggle>
-  <mat-button-toggle value="desc"><mat-icon>arrow_down</mat-icon></mat-button-toggle>
+<mat-form-field class="property">
+  <mat-label>Order by</mat-label>
+  <mat-select value="username" (selectionChange)="data.sortBy({property: $event.value})">
+    <mat-option value="id">ID</mat-option>
+    <mat-option value="username">Username</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-button-toggle-group value="asc" (change)="data.sortBy({order: $event.value})">
+  <mat-button-toggle value="asc"><mat-icon>arrow_upward</mat-icon></mat-button-toggle>
+  <mat-button-toggle value="desc"><mat-icon>arrow_downward</mat-icon></mat-button-toggle>
 </mat-button-toggle-group>
 <table mat-table [dataSource]="dataSource">
   <!-- column definitions -->

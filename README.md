@@ -6,7 +6,9 @@
 
 ngx-pagination-data-source provides an easy to use paginated `DataSource` for [Angular Material & CDK](https://material.angular.io/) that works with HTTP or any other way you're fetching pages. Configure a model for querying the data and hook up any inputs for searching, filtering and sorting - plus loading indication!
 
-⚡ [Example StackBlitz](https://stackblitz.com/github/nilsmehlhorn/ngx-pagination-data-source-example)
+:zap: [Example StackBlitz](https://stackblitz.com/github/nilsmehlhorn/ngx-pagination-data-source-example)
+
+:mag: [In-Depth Explanation](https://nils-mehlhorn.de/posts/angular-material-pagination-datasource)
 
 ## Installation
 

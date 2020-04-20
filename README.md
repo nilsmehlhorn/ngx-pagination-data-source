@@ -4,7 +4,7 @@
 &nbsp;
 [![codecov-badge](https://codecov.io/gh/nilsmehlhorn/ngx-pagination-data-source/branch/master/graph/badge.svg)](https://codecov.io/gh/nilsmehlhorn/ngx-pagination-data-source)
 
-ngx-pagination-data-source provides an easy to use paginated `DataSource` for [Angular Material & CDK](https://material.angular.io/) that works with HTTP or any other way you're fetching pages.
+ngx-pagination-data-source provides an easy to use paginated `DataSource` for [Angular Material & CDK](https://material.angular.io/) that works with HTTP or any other way you're fetching pages. Configure a model for querying the data and hook up any inputs for searching, filtering and sorting - plus loading indication!
 
 ⚡ [Example StackBlitz](https://stackblitz.com/github/nilsmehlhorn/ngx-pagination-data-source-example)
 
@@ -16,7 +16,7 @@ npm i ngx-pagination-data-source
 
 ## Usage
 
-Have a type you want to display in a [table](https://material.angular.io/components/table/overview) (or any other component accepting a `DataSource`).
+Have a type you want to display in a [table](https://material.angular.io/components/table/overview) (or any other component accepting a [DataSource](https://material.angular.io/components/table/overview#datasource)).
 
 ```ts
 export interface User {
@@ -72,33 +72,33 @@ export class UsersComponent  {
       {search: '', registration: undefined}
     )
 
-    constructor(private users: UserService) {
-    }
+    constructor(private users: UserService) { }
 }
 ```
 
-Hook the data source to a table and paginator in your view. Hook any query inputs to `dataSource.queryBy()` to provide a partial new query that will be merged with the existing one. You can also hook up inputs to `dataSource.sortBy()` in the same way.
+Hook the data source to a table and paginator in your view. Hook any query inputs to `dataSource.queryBy()` to provide a [partial](https://www.typescriptlang.org/docs/handbook/utility-types.html#partialt) new query that will be merged with the existing one. You can also hook up inputs to `dataSource.sortBy()` in the same way.
 
 You can optionally add loading indication by e.g. hooking up a spinner to `dataSource.loading$`.
 
 ```html
 <mat-form-field>
   <mat-icon matPrefix>search</mat-icon>
-  <input #in (input)="data.queryBy({search: in.value})" type="text" matInput>
+  <input #in (input)="dataSource.queryBy({search: in.value})" type="text" matInput>
 </mat-form-field>
 <mat-form-field class="registration">
-  <input (dateChange)="data.queryBy({registration: $event.value})" matInput [matDatepicker]="picker" placeholder="Registration"/>
+  <input (dateChange)="dataSource.queryBy({registration: $event.value})" matInput 
+    [matDatepicker]="picker" placeholder="Registration"/>
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
 <mat-form-field class="property">
   <mat-label>Order by</mat-label>
-  <mat-select value="username" (selectionChange)="data.sortBy({property: $event.value})">
+  <mat-select value="username" (selectionChange)="dataSource.sortBy({property: $event.value})">
     <mat-option value="id">ID</mat-option>
     <mat-option value="username">Username</mat-option>
   </mat-select>
 </mat-form-field>
-<mat-button-toggle-group value="asc" (change)="data.sortBy({order: $event.value})">
+<mat-button-toggle-group value="asc" (change)="dataSource.sortBy({order: $event.value})">
   <mat-button-toggle value="asc"><mat-icon>arrow_upward</mat-icon></mat-button-toggle>
   <mat-button-toggle value="desc"><mat-icon>arrow_downward</mat-icon></mat-button-toggle>
 </mat-button-toggle-group>

@@ -1,12 +1,7 @@
 language: node_js
 node_js:
   - "10"
-dist: trusty
-sudo: false
-
-cache:
-  directories:
-    - node_modules
+dist: bionic
 
 addons:
   chrome: stable
@@ -16,3 +11,6 @@ script:
   - npm run lint
   - npm run test:ci
   - npm run build
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

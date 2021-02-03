@@ -17,7 +17,7 @@ module.exports = function (config) {
     },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, '../../coverage/ngx-pagination-data-source'),
-      reports: ['html', 'lcovonly', 'text-summary'],
+      reports: ['lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
     customLaunchers: {

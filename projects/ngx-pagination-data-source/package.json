@@ -23,9 +23,9 @@
     "url": "https://github.com/nilsmehlhorn/ngx-pagination-data-source/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^9.1.1",
-    "@angular/core": "^9.1.1",
-    "@angular/cdk": "^9.1.1"
+    "@angular/common": "^10.0.0 || ^11.0.0",
+    "@angular/core": "^10.0.0 || ^11.0.0",
+    "@angular/cdk": "^10.0.0 || ^11.0.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"

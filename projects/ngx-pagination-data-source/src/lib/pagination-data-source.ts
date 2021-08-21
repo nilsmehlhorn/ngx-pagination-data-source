@@ -44,7 +44,10 @@ export class PaginationDataSource<T, Q = Partial<T>> implements SimpleDataSource
     this.query.next(nextQuery)
   }
 
-  fetch(page: number): void {
+  fetch(page: number, pageSize?: number): void {
+    if (pageSize) {
+      this.pageSize = pageSize
+    }
     this.pageNumber.next(page)
   }
 

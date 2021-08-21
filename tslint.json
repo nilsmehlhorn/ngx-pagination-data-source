@@ -68,7 +68,6 @@
       true,
       "single"
     ],
-    "semicolon": [true, "never"],
     "space-before-function-paren": {
       "options": {
         "anonymous": "never",

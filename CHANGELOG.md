@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/nilsmehlhorn/ngx-pagination-data-source/compare/v4.0.0...v4.1.0) (2021-08-21)
+
+
+### Features
+
+* make page size easier to configure ([#20](https://github.com/nilsmehlhorn/ngx-pagination-data-source/issues/20)) ([bf02553](https://github.com/nilsmehlhorn/ngx-pagination-data-source/commit/bf0255363af79370acc7c005f87a071b51a62d67))
+
 ## [4.0.0](https://github.com/nilsmehlhorn/ngx-pagination-data-source/compare/v3.0.0...v4.0.0) (2021-08-21)
 
 

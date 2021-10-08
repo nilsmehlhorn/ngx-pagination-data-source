@@ -1,8 +1,9 @@
 import {SimpleDataSource} from './simple-data-source'
-import {BehaviorSubject, combineLatest, Observable, Subject} from 'rxjs'
 import {Page, PaginationEndpoint, Sort} from './page'
-import {map, shareReplay, startWith, switchMap} from 'rxjs/operators'
 import {indicate} from './indicate'
+import {BehaviorSubject, combineLatest, Observable, Subject} from 'rxjs';
+import {map, shareReplay, startWith, switchMap, tap} from 'rxjs/operators';
+
 
 export class PaginationDataSource<T, Q = Partial<T>> implements SimpleDataSource<T> {
   private readonly pageNumber = new Subject<number>()
@@ -17,13 +18,17 @@ export class PaginationDataSource<T, Q = Partial<T>> implements SimpleDataSource
     private endpoint: PaginationEndpoint<T, Q>,
     initialSort: Sort<T>,
     initialQuery: Q,
-    public pageSize = 20) {
+    public pageSize = 20,
+    public initialPage = 0,
+    private firstCall = true,
+    ) {
     this.query = new BehaviorSubject<Q>(initialQuery)
     this.sort = new BehaviorSubject<Sort<T>>(initialSort)
     const param$ = combineLatest([this.query, this.sort])
     this.page$ = param$.pipe(
       switchMap(([query, sort]) => this.pageNumber.pipe(
-        startWith(0),
+        startWith(initialPage && firstCall ? initialPage : 0),
+        tap(() => firstCall = false),
         switchMap(page => this.endpoint({page, sort, size: this.pageSize}, query)
           .pipe(indicate(this.loading))
         )

@@ -20,8 +20,8 @@ export class PaginationDataSource<T, Q = Partial<T>> implements SimpleDataSource
     initialQuery: Q,
     public pageSize = 20,
     public initialPage = 0,
-    private firstCall = true,
     ) {
+    let firstCall = true;
     this.query = new BehaviorSubject<Q>(initialQuery)
     this.sort = new BehaviorSubject<Sort<T>>(initialSort)
     const param$ = combineLatest([this.query, this.sort])

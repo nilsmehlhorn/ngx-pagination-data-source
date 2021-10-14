@@ -1,7 +1,7 @@
 import { PaginationDataSource } from './pagination-data-source';
 import { forkJoin, of, Subject } from 'rxjs';
 import { Page, Sort } from './page';
-import { first, take, tap, toArray } from 'rxjs/operators';
+import { first, take, toArray } from 'rxjs/operators';
 import createSpy = jasmine.createSpy;
 
 interface User {
@@ -98,6 +98,64 @@ describe('PaginationDatasource', () => {
     source.queryBy({ search: 'lorem' });
     source.sortBy({ order: 'desc', property: 'id' });
     source.fetch(3);
+  });
+
+  it('should query endpoint starting with initialPage', (done) => {
+    const initialSort: Sort<User> = { order: 'asc', property: 'name' };
+    const initialQuery: UserQuery = { search: '' };
+    const initialPage = 2;
+    const allPages = [
+      {
+        content: [{ id: 1, name: `User[1]` }],
+        totalElements: 100,
+        size: 1,
+        number: 1,
+      },
+      {
+        content: [{ id: 2, name: `User[2]` }],
+        totalElements: 100,
+        size: 1,
+        number: 1,
+      },
+      {
+        content: [{ id: 3, name: `User[3]` }],
+        totalElements: 100,
+        size: 1,
+        number: 1,
+      },
+      {
+        content: [{ id: 4, name: `User[4]` }],
+        totalElements: 100,
+        size: 1,
+        number: 3,
+      },
+    ];
+    const spy = createSpy('endpoint').and.callFake((value) => of(allPages[value.page]));
+    const source = new PaginationDataSource<User, UserQuery>(
+      spy,
+      initialSort,
+      initialQuery,
+      1,
+      initialPage
+    );
+    const page$ = source.page$.pipe(take(2), toArray());
+    const content$ = source.connect().pipe(take(2), toArray());
+    forkJoin([content$, page$]).subscribe(([contents, pages]) => {
+      expect(contents).toEqual([allPages[2], allPages[0]].map((p) => p.content));
+      expect(pages).toEqual([allPages[2], allPages[0]]);
+      const [firstArgs, secondArgs] =
+        spy.calls.allArgs();
+      expect(firstArgs).toEqual([
+        { page: 2, size: 1, sort: initialSort },
+        initialQuery,
+      ]);
+      expect(secondArgs).toEqual([
+        { page: 0, size: 1, sort: initialSort },
+        { search: 'lorem' },
+      ]);
+      done();
+    });
+    source.queryBy({ search: 'lorem' });
   });
 
   it('should indicate loading', async () => {

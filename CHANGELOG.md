@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.0](https://github.com/nilsmehlhorn/ngx-pagination-data-source/compare/v4.1.0...v4.2.0) (2021-10-14)
+
+
+### Features
+
+* add initial page optional parameter ([#24](https://github.com/nilsmehlhorn/ngx-pagination-data-source/issues/24)) ([516ea85](https://github.com/nilsmehlhorn/ngx-pagination-data-source/commit/516ea852cc4e41423e7229ded960f73d380d0503))
+
 ## [4.1.0](https://github.com/nilsmehlhorn/ngx-pagination-data-source/compare/v4.0.0...v4.1.0) (2021-08-21)
 
 

@@ -6,13 +6,13 @@ import {map, shareReplay, startWith, switchMap, tap} from 'rxjs/operators';
 
 
 export class PaginationDataSource<T, Q = Partial<T>> implements SimpleDataSource<T> {
+  public loading$: Observable<boolean>
+  public page$: Observable<Page<T>>
+
   private readonly pageNumber = new Subject<number>()
   private readonly sort: BehaviorSubject<Sort<T>>
   private readonly query: BehaviorSubject<Q>
   private readonly loading = new Subject<boolean>()
-
-  public loading$ = this.loading.asObservable()
-  public page$: Observable<Page<T>>
 
   constructor(
     private endpoint: PaginationEndpoint<T, Q>,
@@ -25,6 +25,7 @@ export class PaginationDataSource<T, Q = Partial<T>> implements SimpleDataSource
     this.query = new BehaviorSubject<Q>(initialQuery)
     this.sort = new BehaviorSubject<Sort<T>>(initialSort)
     const param$ = combineLatest([this.query, this.sort])
+    this.loading$ = this.loading.asObservable()
     this.page$ = param$.pipe(
       switchMap(([query, sort]) => this.pageNumber.pipe(
         startWith(initialPage && firstCall ? initialPage : 0),

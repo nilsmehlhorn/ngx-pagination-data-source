@@ -30,21 +30,20 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/ngx-pagination-data-source/tsconfig.lib.json",
-              "projects/ngx-pagination-data-source/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/ngx-pagination-data-source/**/*.ts",
+              "projects/ngx-pagination-data-source/**/*.html"
             ]
           }
         }
       }
-    }},
+    }
+  },
   "cli": {
-    "analytics": "cf201a80-cf3e-42cb-9922-1af1c17319ff"
+    "analytics": "cf201a80-cf3e-42cb-9922-1af1c17319ff",
+    "defaultCollection": "@angular-eslint/schematics"
   },
   "defaultProject": "ngx-pagination-data-source"
 }

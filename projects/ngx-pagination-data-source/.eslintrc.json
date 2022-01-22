@@ -1,0 +1,53 @@
+{
+  "extends": "../../.eslintrc.json",
+  "ignorePatterns": [
+    "!**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "projects/ngx-pagination-data-source/tsconfig.lib.json",
+          "projects/ngx-pagination-data-source/tsconfig.spec.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "plugins": [
+        "prefer-arrow"
+      ],
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "ngx",
+            "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "ngx",
+            "style": "camelCase"
+          }
+        ],
+        "prefer-arrow/prefer-arrow-functions": "off",
+        "semi": "off",
+        "@typescript-eslint/semi": "off",
+        "@typescript-eslint/member-delimiter-style": "off",
+        "@typescript-eslint/member-ordering": "off",
+        "id-blacklist": "off"
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "rules": {}
+    }
+  ]
+}

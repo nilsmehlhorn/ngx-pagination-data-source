@@ -9,7 +9,8 @@
 projects/ngx-pagination-data-source/README.md
 
 # dependencies
-/node_modules
+node_modules
+/.angular
 
 # profiling files
 chrome-profiler-events*.json
@@ -34,6 +35,7 @@ speed-measure-plugin*.json
 .history/*
 
 # misc
+/.angular/cache
 /.sass-cache
 /connect.lock
 /coverage

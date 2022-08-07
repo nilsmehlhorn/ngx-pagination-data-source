@@ -2,7 +2,7 @@ import {SimpleDataSource} from './simple-data-source'
 import {Page, PaginationEndpoint, Sort} from './page'
 import {indicate} from './indicate'
 import {BehaviorSubject, combineLatest, Observable, Subject} from 'rxjs';
-import {map, shareReplay, startWith, switchMap, tap} from 'rxjs/operators';
+import {map, shareReplay, startWith, switchMap, takeUntil, tap} from 'rxjs/operators';
 
 
 export class PaginationDataSource<T, Q = Partial<T>> implements SimpleDataSource<T> {
@@ -13,6 +13,7 @@ export class PaginationDataSource<T, Q = Partial<T>> implements SimpleDataSource
   private readonly sort: BehaviorSubject<Sort<T>>
   private readonly query: BehaviorSubject<Q>
   private readonly loading = new Subject<boolean>()
+  private readonly destroy = new Subject<void>()
 
   constructor(
     private endpoint: PaginationEndpoint<T, Q>,
@@ -34,6 +35,7 @@ export class PaginationDataSource<T, Q = Partial<T>> implements SimpleDataSource
           .pipe(indicate(this.loading))
         )
       )),
+      takeUntil(this.destroy),
       shareReplay(1)
     )
   }
@@ -62,6 +64,8 @@ export class PaginationDataSource<T, Q = Partial<T>> implements SimpleDataSource
   }
 
   disconnect(): void {
+    this.destroy.next();
+    this.destroy.complete();
   }
 
 }

@@ -43,7 +43,8 @@
   },
   "cli": {
     "analytics": "cf201a80-cf3e-42cb-9922-1af1c17319ff",
-    "defaultCollection": "@angular-eslint/schematics"
-  },
-  "defaultProject": "ngx-pagination-data-source"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
+  }
 }

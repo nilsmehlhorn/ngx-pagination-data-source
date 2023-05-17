@@ -8,10 +8,10 @@
     ]
   },
   "files": [
-    "src/test.ts"
   ],
   "include": [
     "**/*.spec.ts",
-    "**/*.d.ts"
+    "**/*.d.ts",
+    "**/*.ts"
   ]
 }

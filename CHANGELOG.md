@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.1.0](https://github.com/nilsmehlhorn/ngx-pagination-data-source/compare/v6.0.0...v6.1.0) (2025-04-20)
+
+
+### Features
+
+* accept query and sort update fn ([ae74d46](https://github.com/nilsmehlhorn/ngx-pagination-data-source/commit/ae74d46209d98291ce6b6153b565bf5b3c890e1b)), closes [#33](https://github.com/nilsmehlhorn/ngx-pagination-data-source/issues/33)
+
 ## [6.0.0](https://github.com/nilsmehlhorn/ngx-pagination-data-source/compare/v5.0.0...v6.0.0) (2022-08-07)
 
 

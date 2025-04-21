@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.0.0](https://github.com/nilsmehlhorn/ngx-pagination-data-source/compare/v9.0.0...v10.0.0) (2025-04-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* update to angular 18
+
+### build
+
+* update to angular 18 ([c904b9e](https://github.com/nilsmehlhorn/ngx-pagination-data-source/commit/c904b9ef6c822bd65b1996ef523d189ffc4481b3))
+
 ## [9.0.0](https://github.com/nilsmehlhorn/ngx-pagination-data-source/compare/v8.0.0...v9.0.0) (2025-04-21)
 
 

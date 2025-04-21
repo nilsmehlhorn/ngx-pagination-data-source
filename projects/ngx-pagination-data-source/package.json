@@ -1,6 +1,6 @@
 {
   "name": "ngx-pagination-data-source",
-  "version": "9.0.0",
+  "version": "10.0.0",
   "license": "MIT",
   "author": "Nils Mehlhorn <mail@nils-mehlhorn.de> (https://nils-mehlhorn.de)",
   "description": "Angular Material Pagination Data Source",

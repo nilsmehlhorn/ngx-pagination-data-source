@@ -2,7 +2,7 @@
   "name": "ngx-pagination-data-source",
   "version": "7.0.0",
   "license": "MIT",
-  "author": "Nils Melhorn <mail@nils-mehlhorn.de> (https://nils-mehlhorn.de)",
+  "author": "Nils Mehlhorn <mail@nils-mehlhorn.de> (https://nils-mehlhorn.de)",
   "description": "Angular Material Pagination Data Source",
   "homepage": "https://github.com/nilsmehlhorn/ngx-pagination-data-source",
   "keywords": [
@@ -23,9 +23,9 @@
     "url": "https://github.com/nilsmehlhorn/ngx-pagination-data-source/issues"
   },
   "peerDependencies": {
-    "@angular/common": "^15.0.0",
-    "@angular/core": "^15.0.0",
-    "@angular/cdk": "^15.0.0"
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0",
+    "@angular/cdk": "^16.0.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"

@@ -1,7 +1,5 @@
 [![npm-badge](https://img.shields.io/npm/v/ngx-pagination-data-source.svg?style=flat-square)](https://www.npmjs.com/package/ngx-pagination-data-source)
 &nbsp;
-[![travis-badge](https://img.shields.io/travis/nilsmehlhorn/ngx-pagination-data-source/master.svg?style=flat-square)](https://travis-ci.org/nilsmehlhorn/ngx-pagination-data-source)
-&nbsp;
 [![codecov-badge](https://codecov.io/gh/nilsmehlhorn/ngx-pagination-data-source/branch/master/graph/badge.svg)](https://codecov.io/gh/nilsmehlhorn/ngx-pagination-data-source)
 
 ngx-pagination-data-source provides an easy to use paginated `DataSource` for [Angular Material & CDK](https://material.angular.io/) that works with HTTP or any other way you're fetching pages. Configure a model for querying the data and hook up any inputs for searching, filtering and sorting - plus loading indication!

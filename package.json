@@ -47,7 +47,7 @@
     "@commitlint/travis-cli": "^13.1.0",
     "@types/jasmine": "^3.6.11",
     "@types/jasminewd2": "^2.0.10",
-    "@types/node": "^18",
+    "@types/node": "^22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "cpx": "^1.5.0",

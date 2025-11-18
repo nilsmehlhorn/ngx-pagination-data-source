@@ -26,7 +26,6 @@
     "@angular/platform-browser": "^20.3.12",
     "@angular/platform-browser-dynamic": "^20.3.12",
     "@angular/router": "^20.3.12",
-    "karma-coverage": "^2.2.0",
     "rxjs": "^6.6.7",
     "tslib": "^2.3.1",
     "zone.js": "~0.15.0"
@@ -60,6 +59,7 @@
     "jasmine-spec-reporter": "~6.0.0",
     "karma": "~6.3.14",
     "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "^2.2.0",
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "ng-packagr": "^20.3.2",
